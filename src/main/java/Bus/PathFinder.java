@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PathFinder implements PathFinderInterface {
-    List<Object[]> busLines = new ArrayList<Object[]>();
+    List<ArrayList<Object>> busLines = new ArrayList<ArrayList<Object>>();
 
     public PathFinder(){
         System.out.println();
@@ -30,7 +30,12 @@ public class PathFinder implements PathFinderInterface {
 
 
     public void addLine(BusLineInterface line, BusInterface bus) {
-        busLines.add()
+        busLines.get(busLines.size()-1).add(line);
+        busLines.get(busLines.size()-1).add(bus);
+
+        System.out.println("Dodano nową linię autobusową:");
+        System.out.println("Nr autobusu: "+busLines.get(busLines.size()-1).get(1));
+        System.out.println("Trasa: "+busLines.get(busLines.size()-1).get(0).toString());
     }
 
     public void find(BusStopInterface from, BusStopInterface to, int transfers) {
