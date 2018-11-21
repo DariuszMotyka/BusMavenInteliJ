@@ -8,7 +8,7 @@ public class BusLine implements BusLineInterface {
     private List<BusStopInterface> busLine ;
 
     public BusLine(List<BusStopInterface> newBusLine){
-        busLine = newBusLine;
+        this.busLine = newBusLine;
     }
 
     public int getNumberOfBusStops() {
@@ -17,7 +17,7 @@ public class BusLine implements BusLineInterface {
          *
          * @return liczba przystanków danej lini
          */
-        return busLine.size();
+        return this.busLine.size();
     }
 
     public BusStopInterface getBusStop(int number) {
@@ -33,7 +33,7 @@ public class BusLine implements BusLineInterface {
             return null;
         }
 
-        return busLine.get(number);
+        return this.busLine.get(number);
     }
 
     public BusInterface getBus() {

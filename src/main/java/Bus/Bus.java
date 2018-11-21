@@ -12,6 +12,6 @@ public class Bus implements BusInterface {
          * Metoda zwraca numer autobusu
          * @return numer autobusu
          */
-        return number;
+        return this.number;
     }
 }
