@@ -79,28 +79,12 @@ public class PathFinder implements PathFinderInterface {
 
     public void find(BusStopInterface from, BusStopInterface to, int transfers) {
         int fromId = cityMap.getIdOfBusStopTmp(from);
-        int toId  = cityMap.getIdOfBusStopTmp(to);
+        int toId = cityMap.getIdOfBusStopTmp(to);
         int maxTransfer = transfers;
         Dfs dfs1 = new Dfs(cityMap, fromId);
         for (int it : dfs1.getPathTo(toId)) {
-            System.out.print(it + " ");
+            System.out.print(cityMap.getNameOfBusTopId(it) + " ");
         }
-
-
-        System.out.println("\nDFS - sciezki nieskierowane");
-// droga z 1 do 5
-        Dfs dfs3 = new Dfs(cityMap, 0);
-        for (int it : dfs1.getPathTo(4)) {
-            System.out.print(it + " ");
-        }
-        System.out.println("\n----------");
-
-// droga z 5 do 1
-        Dfs dfs2 = new Dfs(cityMap, 4);
-        for (int it : dfs2.getPathTo(0)) {
-            System.out.print(it + " ");
-        }
-
     }
 
     public int getNumerOfSolutions() {

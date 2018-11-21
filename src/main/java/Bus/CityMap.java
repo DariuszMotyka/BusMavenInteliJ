@@ -38,6 +38,10 @@ public class CityMap {
         return id;
     }
 
+    public String getNameOfBusTopId(int number){
+        return names[number];
+    }
+
     /**
      * Dodaje krawedz numberOfBusStop-w do grafu nieskierowanego.
      *
