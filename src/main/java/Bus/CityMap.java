@@ -38,7 +38,7 @@ public class CityMap {
         return id;
     }
 
-    public String getNameOfBusTopId(int number){
+    public String getNameOfBusStopId(int number){
         return names[number];
     }
 

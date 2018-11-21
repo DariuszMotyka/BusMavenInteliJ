@@ -12,12 +12,21 @@ public class Dfs {
     private boolean[] marked;
     // wierzcholek zrodlowy, z ktorego rozpoczynamy przeszukiwanie
     private final int source;
+    private int numberOfSteps=0;
 
     public Dfs(CityMap graph, int source) {
         this.source = source;
         edgeTo = new int[graph.getNumberOfVertices()];
         marked = new boolean[graph.getNumberOfVertices()];
         dfs(graph, source);
+    }
+
+    public void addStep(){
+        numberOfSteps++;
+    }
+
+    public int getNumberOfSteps() {
+        return numberOfSteps;
     }
 
     /**
@@ -38,25 +47,26 @@ public class Dfs {
      */
     public Iterable<Integer> getPathTo(int vertex) {
         Deque<Integer> path = new ArrayDeque<Integer>();
-// jesli nie istnieje sciezka zwroc pusta sciezke
+    // jesli nie istnieje sciezka zwroc pusta sciezke
         if (!hasPathTo(vertex)) {
             return path;
         }
-// dopoki istnieje wierzcholek dodawaj go do stosu
+    // dopoki istnieje wierzcholek dodawaj go do stosu
         for (int w = vertex; w != source; w = edgeTo[w]) {
+            addStep();
             path.push(w);
         }
-// dodaj na koniec krawedz zrodlowa
+    // dodaj na koniec krawedz zrodlowa
         path.push(source);
         return path;
     }
 
     private void dfs(CityMap graph, int vertex) {
-// oznaczamy wierzcholek jako odwiedzony
+    // oznaczamy wierzcholek jako odwiedzony
         marked[vertex] = true;
-// dla kazdego sasiedniego wierzcholka jesli nie jest oznaczony
-// wywolujemy rekurencyjnie metode dfs, ktora odwiedzi wierzchoki i
-// zapisze trase
+    // dla kazdego sasiedniego wierzcholka jesli nie jest oznaczony
+    // wywolujemy rekurencyjnie metode dfs, ktora odwiedzi wierzchoki i
+    // zapisze trase
         for (int w : graph.getConnectionList(vertex)) {
             if (!marked[w]) {
                 edgeTo[w] = vertex;
