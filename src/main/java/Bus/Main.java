@@ -35,12 +35,6 @@ public class Main {
         pathFinder.addLine(new BusLine(trasa300), new Bus(300));
 
         pathFinder.find(new BusStop("I"), new BusStop("M"), 0);
-
-        /*
-        for (int i=0;i<pathFinder.getBusLines().size();i++){
-            System.out.println(pathFinder.getBusLines().get(i).get(0));
-            System.out.println(pathFinder.getBusLines().get(i).get(1));
-        }
-        */
+        
     }
 }
