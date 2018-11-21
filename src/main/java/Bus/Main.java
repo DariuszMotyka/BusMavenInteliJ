@@ -30,8 +30,8 @@ public class Main {
         trasa300.add(new BusStop("O"));
 
 
-        pathFinder.addLine(new BusLine(trasa100), new Bus(100));
-        pathFinder.addLine(new BusLine(trasa200), new Bus(200));
-        pathFinder.addLine(new BusLine(trasa300), new Bus(300));
+        //pathFinder.addLine(new BusLine(trasa100), new Bus(100));
+        //pathFinder.addLine(new BusLine(trasa200), new Bus(200));
+        //pathFinder.addLine(new BusLine(trasa300), new Bus(300));
     }
 }

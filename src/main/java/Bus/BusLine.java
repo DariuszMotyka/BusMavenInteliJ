@@ -1,15 +1,10 @@
 package Bus;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class BusLine implements BusLineInterface {
-    private BusStopInterface busLine;
 
-    public BusLine(BusStopInterface newBusLine){
-        this.busLine = newBusLine;
-    }
-
+    private List<BusStopInterface> busLine;
 
     public int getNumberOfBusStops() {
         /**
@@ -29,10 +24,23 @@ public class BusLine implements BusLineInterface {
          * @param number numer przystanku
          * @return obiekt reprezentujący przystanek o numerze number
          */
+        if(number < 0 || number >= getNumberOfBusStops()){
+            return null;
+        }
+
         return busLine.get(number);
     }
 
     public BusInterface getBus() {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        String tmp="";
+        for(int i=0;i<busLine.size();i++) {
+            tmp+=busLine.get(i).getName()+", ";
+        }
+        return "BusLine [busLine=" + tmp + "]";
     }
 }

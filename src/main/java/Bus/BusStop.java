@@ -1,17 +1,14 @@
 package Bus;
 
 public class BusStop implements BusStopInterface {
-    private String busStopName;
 
-    public BusStop(String name){
-        this.busStopName = name;
+    private String busName;
+
+    public BusStop(String newBusName){
+        busName = newBusName;
     }
 
     public String getName() {
-        /**
-         * Metoda zwraca nazwę przystanku.
-         * @return nazwa przystanku
-         */
-        return this.busStopName;
+        return busName;
     }
 }

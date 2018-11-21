@@ -7,7 +7,7 @@ public interface PathFinderInterface {
      * @param line linia autobusowa
      * @param bus autobus, który ją obsługuje
      */
-    public void addLine(BusLineInterface line, BusInterface bus);
+    public void addLine( BusLineInterface line, BusInterface bus );
 
     /**
      * Metoda zleca znalezienie połączenia autobusowego
@@ -19,7 +19,7 @@ public interface PathFinderInterface {
      * @param to przystanek końcowy
      * @param transfers liczba przesiadek
      */
-    public void find(BusStopInterface from, BusStopInterface to, int transfers);
+    public void find( BusStopInterface from, BusStopInterface to, int transfers );
 
     /**
      * Liczba odnalezionych rozwiązań.
@@ -36,7 +36,7 @@ public interface PathFinderInterface {
      * @param solution numer rozwiązania
      * @return liczba przystanków.
      */
-    public int getBusStops(int solution);
+    public int getBusStops( int solution );
 
     /**
      * Metoda zwraca przystanek o numerze busStop w rozwiązaniu
@@ -45,7 +45,7 @@ public interface PathFinderInterface {
      * @param busStop numer przystanku w obrębie danego rozwiązania
      * @return przystanek o podanych numerach identyfikacyjnych
      */
-    public BusStopInterface getBusStop(int solution, int busStop);
+    public BusStopInterface getBusStop( int solution, int busStop );
 
     /**
      * Dla wszystkich przystanków poza ostatnim, metoda zwraca autobus, który
@@ -58,5 +58,5 @@ public interface PathFinderInterface {
      * w przypadku przystanku docelowego, autobus, z którego pasażer
      * na tym przystanku wysiadł.
      */
-    public BusInterface getBus(int solution, int busStop);
+    public BusInterface getBus( int solution, int busStop );
 }

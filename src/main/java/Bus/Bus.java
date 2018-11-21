@@ -1,7 +1,6 @@
 package Bus;
 
 public class Bus implements BusInterface {
-
     private int number;
 
     public Bus(int number){
@@ -10,9 +9,9 @@ public class Bus implements BusInterface {
 
     public int getBusNumber() {
         /**
-        * Metoda zwraca numer autobusu
-        * @return numer autobusu
-        */
-        return this.number;
+         * Metoda zwraca numer autobusu
+         * @return numer autobusu
+         */
+        return number;
     }
 }

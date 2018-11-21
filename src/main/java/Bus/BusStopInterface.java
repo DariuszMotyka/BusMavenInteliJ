@@ -6,6 +6,4 @@ public interface BusStopInterface {
      * @return nazwa przystanku
      */
     public String getName();
-
-
 }
