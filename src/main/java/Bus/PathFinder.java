@@ -1,10 +1,36 @@
 package Bus;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PathFinder implements PathFinderInterface {
+    List<Object[]> busLines = new ArrayList<Object[]>();
+
+    public PathFinder(){
+        System.out.println();
+        System.out.println();
+        System.out.println("graphLine -------------------------------------------");
+        CityMap graphLine = new CityMap(15);
+        graphLine.addConection(new BusStop("A"), new BusStop("B"));
+        graphLine.addConection(new BusStop("B"), new BusStop("C"));
+        graphLine.addConection(new BusStop("C"), new BusStop("D"));
+        graphLine.addConection(new BusStop("D"), new BusStop("E"));
+        graphLine.addConection(new BusStop("E"), new BusStop("F"));
+        graphLine.addConection(new BusStop("F"), new BusStop("G"));
+        graphLine.addConection(new BusStop("H"), new BusStop("I"));
+        graphLine.addConection(new BusStop("I"), new BusStop("C"));
+        graphLine.addConection(new BusStop("C"), new BusStop("J"));
+        graphLine.addConection(new BusStop("J"), new BusStop("K"));
+        graphLine.addConection(new BusStop("L"), new BusStop("E"));
+        graphLine.addConection(new BusStop("E"), new BusStop("M"));
+        graphLine.addConection(new BusStop("M"), new BusStop("N"));
+        graphLine.addConection(new BusStop("N"), new BusStop("O"));
+        graphLine.printGraph();
+    }
 
 
     public void addLine(BusLineInterface line, BusInterface bus) {
-
+        busLines.add()
     }
 
     public void find(BusStopInterface from, BusStopInterface to, int transfers) {
