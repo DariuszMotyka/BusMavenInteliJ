@@ -3,7 +3,7 @@ package Bus;
 public class Bus implements BusInterface {
     private int number;
 
-    public Bus(int number){
+    public Bus(int number) {
         this.number = number;
     }
 

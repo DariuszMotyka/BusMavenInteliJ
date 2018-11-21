@@ -4,7 +4,7 @@ public class BusStop implements BusStopInterface {
 
     private String busName;
 
-    public BusStop(String newBusName){
+    public BusStop(String newBusName) {
         busName = newBusName;
     }
 

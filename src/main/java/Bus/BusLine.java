@@ -5,9 +5,9 @@ import java.util.List;
 
 public class BusLine implements BusLineInterface {
 
-    private List<BusStopInterface> busLine ;
+    private List<BusStopInterface> busLine;
 
-    public BusLine(List<BusStopInterface> newBusLine){
+    public BusLine(List<BusStopInterface> newBusLine) {
         this.busLine = newBusLine;
     }
 
@@ -29,7 +29,7 @@ public class BusLine implements BusLineInterface {
          * @param number numer przystanku
          * @return obiekt reprezentujący przystanek o numerze number
          */
-        if(number < 0 || number >= getNumberOfBusStops()){
+        if (number < 0 || number >= getNumberOfBusStops()) {
             return null;
         }
 
@@ -42,9 +42,9 @@ public class BusLine implements BusLineInterface {
 
     @Override
     public String toString() {
-        String tmp="";
-        for(int i=0;i<busLine.size();i++) {
-            tmp+=busLine.get(i).getName()+", ";
+        String tmp = "";
+        for (int i = 0; i < busLine.size(); i++) {
+            tmp += busLine.get(i).getName() + ", ";
         }
         return "BusLine [busLine=" + tmp + "]";
     }

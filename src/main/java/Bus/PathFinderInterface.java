@@ -23,6 +23,7 @@ public interface PathFinderInterface {
 
     /**
      * Liczba odnalezionych rozwiązań.
+     *
      * @return liczba rozwiązań. Przed wykonaniem metody find
      * metoda zwraca zawsze 0.
      */
