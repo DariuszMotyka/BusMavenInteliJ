@@ -28,14 +28,20 @@ public class PathFinder implements PathFinderInterface {
         graphLine.printGraph();
     }
 
+    public List<ArrayList<Object>> getBusLines() {
+        return busLines;
+    }
 
     public void addLine(BusLineInterface line, BusInterface bus) {
-        busLines.get(busLines.size()-1).add(line);
+        busLines.add(new ArrayList<Object>());
         busLines.get(busLines.size()-1).add(bus);
+        busLines.get(busLines.size()-1).add(line);
+
+        bus.getBusNumber();
 
         System.out.println("Dodano nową linię autobusową:");
-        System.out.println("Nr autobusu: "+busLines.get(busLines.size()-1).get(1));
-        System.out.println("Trasa: "+busLines.get(busLines.size()-1).get(0).toString());
+        System.out.println("Nr autobusu: "+busLines.get(busLines.size()-1).get(0));
+        System.out.println("Trasa: "+busLines.get(busLines.size()-1).get(1).toString());
     }
 
     public void find(BusStopInterface from, BusStopInterface to, int transfers) {

@@ -1,10 +1,15 @@
 package Bus;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BusLine implements BusLineInterface {
 
-    private List<BusStopInterface> busLine;
+    private List<BusStopInterface> busLine ;
+
+    public BusLine(List<BusStopInterface> newBusLine){
+        busLine = newBusLine;
+    }
 
     public int getNumberOfBusStops() {
         /**
