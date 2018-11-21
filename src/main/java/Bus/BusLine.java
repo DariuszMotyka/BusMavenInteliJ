@@ -4,7 +4,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class BusLine implements BusLineInterface {
-    List<BusStopInterface> busLine = new LinkedList<BusStopInterface>();
+    private BusStopInterface busLine;
+
+    public BusLine(BusStopInterface newBusLine){
+        this.busLine = newBusLine;
+    }
+
 
     public int getNumberOfBusStops() {
         /**
@@ -12,7 +17,7 @@ public class BusLine implements BusLineInterface {
          *
          * @return liczba przystanków danej lini
          */
-        return 0;
+        return busLine.size();
     }
 
     public BusStopInterface getBusStop(int number) {
@@ -24,7 +29,7 @@ public class BusLine implements BusLineInterface {
          * @param number numer przystanku
          * @return obiekt reprezentujący przystanek o numerze number
          */
-        return null;
+        return busLine.get(number);
     }
 
     public BusInterface getBus() {
