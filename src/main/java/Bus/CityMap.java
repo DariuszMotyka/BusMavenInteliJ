@@ -7,17 +7,17 @@ public class CityMap {
 
         private int numberOfConnections;
         private int numberOfBusStop;
-        private List<BusStopInterface>[] connectionList;
+        private List<Integer>[]  connectionList;
         //private List<List<BusStopInterface>> connectionList;
         private final String[] names = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"};
 
         public CityMap(int numberOfBusStop){
             this.numberOfBusStop = numberOfBusStop;
             this.numberOfConnections = 0;
-            connectionList = (List<BusStopInterface>[]) new List[numberOfBusStop];
+            connectionList = (List<Integer>[]) new List[numberOfBusStop];
             //connectionList = new ArrayList<List<BusStopInterface>>();
             for (int i = 0; i < numberOfBusStop; i++) {
-                connectionList[i]=new ArrayList<BusStopInterface>();
+                connectionList[i]=new ArrayList<Integer>();
             }
         }
 
@@ -33,8 +33,8 @@ public class CityMap {
         }
 
         public void addConection(BusStopInterface from, BusStopInterface to) {
-            connectionList[getIdOfBusStopTmp(from)].add(to);
-            connectionList[getIdOfBusStopTmp(to)].add(from);
+            connectionList[getIdOfBusStopTmp(from)].add(getIdOfBusStopTmp(to));
+            connectionList[getIdOfBusStopTmp(to)].add(getIdOfBusStopTmp(from));
             numberOfConnections++;
         }
 
@@ -47,7 +47,7 @@ public class CityMap {
             return numberOfBusStop;
         }
 
-        public List<BusStopInterface> getConnectionList(int busStopNumber) {
+        public List<Integer> getConnectionList(int busStopNumber) {
             return connectionList[busStopNumber];
         }
 
@@ -58,7 +58,8 @@ public class CityMap {
                 tmp="";
                 System.out.print("Przystanek "+i+": ");
                 for(int j=0;j<connectionList[i].size();j++) {
-                    tmp+=(connectionList[i].get(j).getName())+" ";
+                    //tmp+=(connectionList[i].get(j))+" ";
+                    tmp+=names[j]+" ";
                 }
                 System.out.println(tmp);
             }

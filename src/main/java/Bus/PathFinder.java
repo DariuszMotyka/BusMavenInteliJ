@@ -56,6 +56,20 @@ public class PathFinder implements PathFinderInterface {
         }
 
 
+        System.out.println("\nDFS - sciezki nieskierowane");
+// droga z 1 do 5
+        Dfs dfs3 = new Dfs(cityMap, 0);
+        for (int it : dfs1.getPathTo(4)) {
+            System.out.print(it + " ");
+        }
+        System.out.println("\n----------");
+
+// droga z 5 do 1
+        Dfs dfs2 = new Dfs(cityMap, 4);
+        for (int it : dfs2.getPathTo(0)) {
+            System.out.print(it + " ");
+        }
+
     }
 
     public int getNumerOfSolutions() {
