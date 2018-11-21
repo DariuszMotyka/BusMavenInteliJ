@@ -48,7 +48,12 @@ public class PathFinder implements PathFinderInterface {
 
     public void find(BusStopInterface from, BusStopInterface to, int transfers) {
         int fromId = cityMap.getIdOfBusStopTmp(from);
-        int toId  = cityMap.getIdOfBusStopTmp(from);
+        int toId  = cityMap.getIdOfBusStopTmp(to);
+        int maxTransfer = transfers;
+        Dfs dfs1 = new Dfs(cityMap, fromId);
+        for (int it : dfs1.getPathTo(toId)) {
+            System.out.print(it + " ");
+        }
 
 
     }

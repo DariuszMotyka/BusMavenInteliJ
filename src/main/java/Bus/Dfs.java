@@ -9,8 +9,8 @@ public class Dfs {
     private boolean[] marked;
     private final int source;
 
-    public Dfs(CityMap graph, BusStopInterface s) {
-        this.source = graph.getIdOfBusStopTmp(s);
+    public Dfs(CityMap graph, int source) {
+        this.source = source;
         this.edgeTo = new int[graph.getNumberOfBusStop()];
         this.marked = new boolean[graph.getNumberOfBusStop()];
         this.dfs(graph, this.source);
