@@ -35,6 +35,6 @@ public class Main {
         pathFinder.addLine(new BusLine(trasa300), new Bus(300));
 
         pathFinder.find(new BusStop("I"), new BusStop("M"), 0);
-        
+
     }
 }
