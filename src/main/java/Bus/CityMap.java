@@ -5,64 +5,95 @@ import java.util.List;
 
 public class CityMap {
 
-        private int numberOfConnections;
-        private int numberOfBusStop;
-        private List<Integer>[]  connectionList;
-        //private List<List<BusStopInterface>> connectionList;
-        private final String[] names = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"};
+    // liczba krawedzi
+    private int numberOfConnections;
+    // liczba wierzcholkow
+    private int numberOfBusStop;
+    // tablica list sasiedztwa danego wierzcholka
+    private List<Integer>[] connectionList;
+    private final String[] names = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"};
+    /**
+     *
+     * @param numberOfBusStop
+     *            ilosc wierzcholkow w grafie
+     */
+    @SuppressWarnings("unchecked")
+    public CityMap(int numberOfBusStop) {
+        this.numberOfBusStop = numberOfBusStop;
+        this.numberOfConnections = 0;
+        connectionList = (List<Integer>[]) new List[numberOfBusStop];
+        for (int i = 0; i < numberOfBusStop; i++) {
+            connectionList[i] = new ArrayList<Integer>();
+        }
+    }
 
-        public CityMap(int numberOfBusStop){
-            this.numberOfBusStop = numberOfBusStop;
-            this.numberOfConnections = 0;
-            connectionList = (List<Integer>[]) new List[numberOfBusStop];
-            //connectionList = new ArrayList<List<BusStopInterface>>();
-            for (int i = 0; i < numberOfBusStop; i++) {
-                connectionList[i]=new ArrayList<Integer>();
+    public int getIdOfBusStopTmp(BusStopInterface busStop) {
+        int id=0;
+        for(int i=0;i<names.length;i++) {
+            if(names[i]==busStop.getName()) {
+                id = i;
+                break;
             }
         }
+        return id;
+    }
 
-        public int getIdOfBusStopTmp(BusStopInterface busStop) {
-            int id=0;
-            for(int i=0;i<names.length;i++) {
-                if(names[i]==busStop.getName()) {
-                    id = i;
-                    break;
-                }
+    /**
+     * Dodaje krawedz numberOfBusStop-w do grafu nieskierowanego.
+     *
+     * @param v
+     *            jeden z wierzcholkow krawedzi
+     * @param w
+     *            drugi z wierzcholkow krawedzi
+     */
+    public void addConection(int v, int w) {
+        connectionList[v].add(w);
+        connectionList[w].add(v);
+        numberOfConnections++;
+    }
+
+    /**
+     *
+     * @return liczbe krawedzi
+     */
+    public int getNumberOfEdges() {
+        return numberOfConnections;
+    }
+
+    /**
+     * @return liczbe wierzcholkow
+     */
+    public int getNumberOfVertices() {
+        return numberOfBusStop;
+    }
+
+    /**
+     * Zwraca liste sasiedztwa danego wierzcholka.
+     *
+     * @param v
+     *            indeks wierzcholka skierowanego
+     * @return zwraca iterowalna kolekcje wierzcholkow sasiadujacych
+     */
+    public Iterable<Integer> getConnectionList(int v) {
+        return connectionList[v];
+    }
+
+    /**
+     * @return opis grafu.
+     */
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        String newLine = System.getProperty("line.separator");
+        s.append("wierzcholki: ").append(numberOfBusStop).append("; krawedzie: ").append(numberOfConnections)
+                .append(newLine);
+        for (int i = 0; i < numberOfBusStop; i++) {
+            s.append(i).append(": ");
+            for (int w : connectionList[i]) {
+                s.append(w).append(" ");
             }
-            return id;
+            s.append(newLine);
         }
-
-        public void addConection(BusStopInterface from, BusStopInterface to) {
-            connectionList[getIdOfBusStopTmp(from)].add(getIdOfBusStopTmp(to));
-            connectionList[getIdOfBusStopTmp(to)].add(getIdOfBusStopTmp(from));
-            numberOfConnections++;
-        }
-
-        public int getNumberOfConnections() {
-            return numberOfConnections;
-        }
-
-
-        public int getNumberOfBusStop() {
-            return numberOfBusStop;
-        }
-
-        public List<Integer> getConnectionList(int busStopNumber) {
-            return connectionList[busStopNumber];
-        }
-
-        public void printGraph() {
-            String tmp;
-            System.out.println("Ilość przystanków:"+numberOfBusStop);
-            for (int i = 0; i < numberOfBusStop; i++) {
-                tmp="";
-                System.out.print("Przystanek "+i+": ");
-                for(int j=0;j<connectionList[i].size();j++) {
-                    //tmp+=(connectionList[i].get(j))+" ";
-                    tmp+=names[j]+" ";
-                }
-                System.out.println(tmp);
-            }
-        }
+        return s.toString();
+    }
 
 }

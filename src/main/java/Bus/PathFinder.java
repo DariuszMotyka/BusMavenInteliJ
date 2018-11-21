@@ -11,6 +11,36 @@ public class PathFinder implements PathFinderInterface {
         System.out.println();
         System.out.println();
         System.out.println("graphLine -------------------------------------------");
+        //ab
+        cityMap.addConection(0,1);
+        //bc
+        cityMap.addConection(1,2);
+        //cd
+        cityMap.addConection(2,3);
+        //de
+        cityMap.addConection(3,4);
+        //ef
+        cityMap.addConection(4,5);
+        //fg
+        cityMap.addConection(5,6);
+        //hi
+        cityMap.addConection(7,8);
+        //ic
+        cityMap.addConection(8,2);
+        //cj
+        cityMap.addConection(2,9);
+        //jk
+        cityMap.addConection(9,10);
+        //le
+        cityMap.addConection(11,4);
+        //em
+        cityMap.addConection(4,12);
+        //mn
+        cityMap.addConection(12,13);
+        //no
+        cityMap.addConection(13,14);
+
+        /*
         cityMap.addConection(new BusStop("A"), new BusStop("B"));
         cityMap.addConection(new BusStop("B"), new BusStop("C"));
         cityMap.addConection(new BusStop("C"), new BusStop("D"));
@@ -25,7 +55,8 @@ public class PathFinder implements PathFinderInterface {
         cityMap.addConection(new BusStop("E"), new BusStop("M"));
         cityMap.addConection(new BusStop("M"), new BusStop("N"));
         cityMap.addConection(new BusStop("N"), new BusStop("O"));
-        cityMap.printGraph();
+        */
+        cityMap.toString();
     }
 
     public List<ArrayList<Object>> getBusLines() {
